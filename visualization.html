@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Excel Handling - Visualization</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Add necessary Plotly CDN links here -->
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Data Visualization</h2>
+    {% if plot %}
+        <div class="mt-4">
+            {{ plot | safe }}
+        </div>
+    {% else %}
+        <p>No data available for visualization.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Excel Handling</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Excel Data Handling</h2>
+    <!-- Form for Adding Data -->
+<form method="POST" action="/add">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="usn">USN:</label>
+        <input type="text" name="usn" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="branch">Branch:</label>
+        <input type="text" name="branch" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="sec">Sec:</label>
+        <input type="text" name="sec" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="hobbies">Hobbies:</label>
+        <input type="text" name="hobbies" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="marks">Marks:</label>
+        <input type="text" name="marks" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add Data</button>
+</form>
+
+    
+
+    <!-- Form for Deleting Data -->
+    <h3>Delete Data</h3>
+    <form method="POST" action="/delete">
+        <div class="form-group">
+            <label for="delete_name">Name to Delete:</label>
+            <input type="text" name="delete_name" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Delete Data</button>
+    </form>
+
+    <hr>
+
+    <!-- Form for Updating Data -->
+    <h3>Update Data</h3>
+<form method="POST" action="/update">
+    <div class="form-group">
+        <label for="old_name">Old Name:</label>
+        <input type="text" name="old_name" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="new_name">New Name:</label>
+        <input type="text" name="new_name" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="new_usn">New USN:</label>
+        <input type="text" name="new_usn" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="new_branch">New Branch:</label>
+        <input type="text" name="new_branch" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="new_sec">New Sec:</label>
+        <input type="text" name="new_sec" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="new_marks">New Marks:</label>
+        <input type="text" name="new_marks" class="form-control" required>
+    </div>    
+    <div class="form-group">
+        <label for="new_hobbies">New Hobbies:</label>
+        <input type="text" name="new_hobbies" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-warning">Update Data</button>
+</form>
+
+    <!-- Form for Searching Data -->
+    <h3>Search Data</h3>
+    <form method="POST" action="/search">
+        <div class="form-group">
+            <label for="search_name">Name to Search:</label>
+            <input type="text" name="search_name" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Search Data</button>
+    </form>
+
+    <hr>
+
+    <!-- Link to View All Data -->
+    <h3>View All Data</h3>
+    <a href="/view-all" class="btn btn-info">View All Data</a>
+
+    <hr>
+
+    <!-- Link to Clear All Data -->
+    <h3>Clear All Data</h3>
+    <a href="/clear-all" class="btn btn-danger">Clear All Data</a>
+
+    <hr>
+
+    <!-- Form for Sorting Data -->
+    <h3>Sort Data</h3>
+    <form method="POST" action="/sort">
+        <div class="form-group">
+            <label for="sort_column">Sort Column:</label>
+            <select name="sort_column" class="form-control" required>
+                <option value="Name">Name</option>
+                <option value="USN">USN</option>
+                <!-- Add options for other columns -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sort_order">Sort Order:</label>
+            <select name="sort_order" class="form-control" required>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-info">Sort Data</button>
+    </form>
+
+    <hr>
+
+    <!-- Form for Exporting Data -->
+    <h3>Export Data</h3>
+    <form method="POST" action="/export">
+        <div class="form-group">
+            <label for="export_format">Export Format:</label>
+            <select name="export_format" class="form-control" required>
+                <option value="csv">CSV</option>
+                <option value="xlsx">Excel (xlsx)</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Export Data</button>
+    </form>
+
+    <hr>
+
+   <!-- Link to Statistics -->
+    <h3>Data Statistics</h3>
+    <a href="/show-statistics" class="btn btn-info">View Statistics</a>
+
+    <hr>
+
+    <!-- Form for Visualizing Data -->
+    <!-- Form for Visualizing Data -->
+<form method="POST" action="/visualize">
+    <div class="form-group">
+        <label for="chart_column">Select Column for Chart:</label>
+        <select name="chart_column" class="form-control" required>
+            <option value="Marks">Marks</option>
+            <!-- Add options for other columns -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="chart_type">Select Chart Type:</label>
+        <select name="chart_type" class="form-control" required>
+            <option value="bar">Bar Chart</option>
+            <option value="scatter">Scatter Plot</option>
+            <!-- Add options for other chart types -->
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Visualize Data</button>
+</form>
+
+
+    <!-- Display Table if Data Exists -->
+    {% if table %}
+        <div class="mt-4">
+            {{ table | safe }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
